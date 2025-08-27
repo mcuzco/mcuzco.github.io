@@ -4,8 +4,12 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.get('/', (req, res) => {
-  res.send('Backend is running!');
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, '../dist')));
+
+// Fallback to serving the React app's index.html for all other requests
+app.use((req, res) => {
+  res.sendFile(path.join(__dirname, '../dist', 'index.html'));
 });
 
 app.listen(PORT, () => {
