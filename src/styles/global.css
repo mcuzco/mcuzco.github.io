@@ -1,0 +1,106 @@
+/* global.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+  --background-dark: #282c34;
+  --text-color-dark: #abb2bf;
+  --primary-color-dark: #61dafb;
+  --secondary-color-dark: #c678dd;
+  --accent-color-dark: #98c379;
+  --card-background-dark: #3a404d;
+
+  --background-light: #f0f2f5;
+  --text-color-light: #333;
+  --primary-color-light: #007bff;
+  --secondary-color-light: #6f42c1;
+  --accent-color-light: #28a745;
+  --card-background-light: #ffffff;
+}
+
+body {
+  margin: 0;
+  font-family: 'Press Start 2P', cursive; /* Pixel-art inspired font */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-dark);
+  color: var(--text-color-dark);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Basic pixelation effect for images (optional, can be applied to specific elements) */
+img.pixelated {
+  image-rendering: optimizeSpeed;             /* Older versions of FF */
+  image-rendering: -moz-crisp-edges;          /* FF 6.0+ */
+  image-rendering: -webkit-optimize-contrast; /* Safari */
+  image-rendering: optimize-contrast;         /* CSS3 Proposed */
+  image-rendering: pixelated;                 /* CSS4 Proposed */
+  -ms-interpolation-mode: nearest-neighbor;   /* IE8+ */
+}
+
+/* Dark mode styles (default) */
+body.dark-mode {
+  background-color: var(--background-dark);
+  color: var(--text-color-dark);
+}
+
+/* Light mode styles */
+body.light-mode {
+  background-color: var(--background-light);
+  color: var(--text-color-light);
+}
+
+/* Apply theme variables to elements */
+.container {
+  background-color: var(--card-background-dark);
+}
+
+.light-mode .container {
+  background-color: var(--card-background-light);
+}
+
+/* Buttons */
+button {
+  font-family: 'Press Start 2P', cursive;
+  border: 2px solid var(--secondary-color-dark);
+  background-color: var(--accent-color-dark);
+  color: var(--background-dark);
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+button:hover {
+  background-color: var(--primary-color-dark);
+  border-color: var(--primary-color-dark);
+  color: var(--text-color-dark);
+}
+
+.light-mode button {
+  border: 2px solid var(--secondary-color-light);
+  background-color: var(--accent-color-light);
+  color: var(--background-light);
+}
+
+.light-mode button:hover {
+  background-color: var(--primary-color-light);
+  border-color: var(--primary-color-light);
+  color: var(--text-color-light);
+}
+
+/* Inputs */
+input[type="text"],
+input[type="password"] {
+  font-family: 'Press Start 2P', cursive;
+  background-color: var(--background-dark);
+  color: var(--text-color-dark);
+  border: 1px solid var(--secondary-color-dark);
+  padding: 8px;
+}
+
+.light-mode input[type="text"],
+.light-mode input[type="password"] {
+  background-color: var(--background-light);
+  color: var(--text-color-light);
+  border: 1px solid var(--secondary-color-light);
+}
